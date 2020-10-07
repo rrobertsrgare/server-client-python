@@ -64,6 +64,10 @@ class WorkbookItem(object):
     def description(self):
         return self._description
 
+    @description.setter
+    def description(self, value):
+        self._description = value
+
     @property
     def id(self):
         return self._id

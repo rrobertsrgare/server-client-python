@@ -541,6 +541,8 @@ class WorkbookRequest(object):
         xml_request = ET.Element('tsRequest')
         workbook_element = ET.SubElement(xml_request, 'workbook')
         workbook_element.attrib['name'] = workbook_item.name
+        if workbook_item.description:
+            workbook_element.attrib['description'] = workbook_item.description
         if workbook_item.show_tabs:
             workbook_element.attrib['showTabs'] = str(workbook_item.show_tabs).lower()
         project_element = ET.SubElement(workbook_element, 'project')
@@ -569,6 +571,8 @@ class WorkbookRequest(object):
         workbook_element = ET.SubElement(xml_request, 'workbook')
         if workbook_item.name:
             workbook_element.attrib['name'] = workbook_item.name
+        if workbook_item.description:
+            workbook_element.attrib['description'] = workbook_item.description
         if workbook_item.show_tabs is not None:
             workbook_element.attrib['showTabs'] = str(workbook_item.show_tabs).lower()
         if workbook_item.project_id:
